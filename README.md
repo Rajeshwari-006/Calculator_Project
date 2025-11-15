@@ -1,1 +1,2 @@
 # Calculator_Project
+This calculator project delivers a clean and intuitive tool for performing everyday arithmetic directly in the browser. It features a modern UI with styled buttons, real-time input handling, and smooth visual feedback. The entire logic is built using pure JavaScript, showcasing how simple functions can power interactive interfaces. Designed for clarity and usability, it serves as a solid example of building functional mini-apps on the web.
