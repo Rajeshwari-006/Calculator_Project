@@ -1,0 +1,157 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visible Calculator</title>
+
+    <style>
+        body {
+            margin: 0;
+            background: #0a0a0a;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Calculator Box */
+        #calculator {
+            background: #1f1f1f;
+            padding: 20px;
+            border-radius: 20px;
+            width: 320px;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+        }
+
+        /* Display */
+        #display {
+            width: 100%;
+            height: 65px;
+            font-size: 2.4rem;
+            margin-bottom: 15px;
+            border: none;
+            padding: 10px;
+            border-radius: 10px;
+            background: #000;
+            color: #0aff9d;
+            text-align: right;
+            outline: none;
+        }
+
+        /* Grid Button Layout */
+        #keys {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+
+        button {
+            height: 70px;
+            border: none;
+            border-radius: 14px;
+            font-size: 1.8rem;
+            background: #333;
+            color: white;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        button:hover {
+            background: #444;
+        }
+
+        .operator {
+            background: #ff9500;
+            color: black;
+        }
+        .operator:hover {
+            background: #ffb84d;
+        }
+
+        #equal {
+            background: #2ecc71;
+            color: black;
+        }
+
+        #equal:hover {
+            background: #5dffa1;
+        }
+
+        #del {
+            background: #e74c3c;
+        }
+        #del:hover {
+            background: #ff6f5f;
+        }
+
+        #ac {
+            background: #3498db;
+        }
+        #ac:hover {
+            background: #62b2f0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="calculator">
+
+        <input id="display" readonly>
+
+        <div id="keys">
+            <button class="operator" onclick="press('+')">+</button>
+            <button onclick="press('7')">7</button>
+            <button onclick="press('8')">8</button>
+            <button onclick="press('9')">9</button>
+
+            <button class="operator" onclick="press('-')">-</button>
+            <button onclick="press('4')">4</button>
+            <button onclick="press('5')">5</button>
+            <button onclick="press('6')">6</button>
+
+            <button class="operator" onclick="press('*')">*</button>
+            <button onclick="press('1')">1</button>
+            <button onclick="press('2')">2</button>
+            <button onclick="press('3')">3</button>
+
+            <button class="operator" onclick="press('/')">/</button>
+            <button onclick="press('0')">0</button>
+            <button onclick="press('.')">.</button>
+
+            <button id="equal" onclick="calculate()">=</button>
+
+            <button id="ac" onclick="clearDisplay()">AC</button>
+            <button id="del" onclick="deleteChar()">DEL</button>
+        </div>
+    </div>
+
+    <script>
+        const display = document.getElementById("display");
+
+        function press(val) {
+            display.value += val;
+        }
+
+        function clearDisplay() {
+            display.value = "";
+        }
+
+        function deleteChar() {
+            display.value = display.value.slice(0, -1);
+        }
+
+        function calculate() {
+            try {
+                display.value = eval(display.value);
+            } catch {
+                display.value = "Error";
+            }
+        }
+    </script>
+
+</body>
+</html>
